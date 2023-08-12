@@ -1169,6 +1169,8 @@ Extern BOOL bConfirmReadOnly EQ( TRUE );
 Extern BOOL bSaveSettings    EQ( TRUE );
 Extern BOOL bScrollOnExpand  EQ( TRUE );
 
+Extern BOOL bCopyCdromReadOnlyAttrib  EQ( TRUE );
+
 Extern BOOL bConnectable       EQ( FALSE );
 Extern INT  iShowSourceBitmaps EQ( 1 );
 Extern BOOL bFSCTimerSet       EQ( FALSE );
@@ -1200,6 +1202,8 @@ Extern TCHAR        szIndexOnLaunch[]       EQ( TEXT("IndexOnLaunch") );
 Extern TCHAR        szStatusBar[]           EQ( TEXT("StatusBar") );
 Extern TCHAR        szSaveSettings[]        EQ( TEXT("Save Settings") );
 Extern TCHAR        szScrollOnExpand[]      EQ( TEXT("ScrollOnExpand"));
+
+Extern TCHAR        szCopyCdromReadOnlyAttrib[]      EQ( TEXT("CopyCdromReadOnlyAttrib"));
 
 Extern TCHAR        szConfirmDelete[]       EQ( TEXT("ConfirmDelete") );
 Extern TCHAR        szConfirmSubDel[]       EQ( TEXT("ConfirmSubDel") );

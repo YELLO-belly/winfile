@@ -519,6 +519,17 @@ WFCopy(LPTSTR pszFrom, LPTSTR pszTo)
     BOOL bCancel = FALSE;
     if (CopyFileEx(pszFrom, pszTo, NULL, NULL, &bCancel, COPY_FILE_COPY_SYMLINK)) {
         ChangeFileSystem(FSC_CREATE, pszTo, NULL);
+        //
+        // If source is CD-ROM remove read-only attribute.
+        // (This follows the same logic as File Explorer.)
+        //
+        if (FALSE == bCopyCdromReadOnlyAttrib){
+            TCHAR pszFromBuffer[10];
+            swprintf(pszFromBuffer, 4, L"%s:\\", pszFrom);
+            int isCDROMType = GetDriveType(pszFromBuffer);
+            if(isCDROMType==5)SetFileAttributes(pszTo, GetFileAttributes(pszTo) & ~FILE_ATTRIBUTE_READONLY);
+        }
+
         dwRet = 0;
     }
     else
