@@ -2143,9 +2143,13 @@ CHECK_OPTION:
        goto ACPCallHelp;
 
 ACPCallHelp:
-   	   SetCurrentDirectory(szOriginalDirPath);
-       if (!WinHelp(hwndFrame, szWinfileHelp, dwFlags, (ULONG_PTR)szNULL))
-          MyMessageBox(hwndFrame, IDS_WINFILE, IDS_WINHELPERR, MB_OK | MB_ICONEXCLAMATION | MB_SYSTEMMODAL);
+       SetCurrentDirectory(szOriginalDirPath);
+       //
+       // Commented out old code to open .hlp files and replaced with new html(.htm) help.
+       //
+       //if (!WinHelp(hwndFrame, szWinfileHelp, dwFlags, (ULONG_PTR)szNULL))
+          //MyMessageBox(hwndFrame, IDS_WINFILE, IDS_WINHELPERR, MB_OK | MB_ICONEXCLAMATION | MB_SYSTEMMODAL);
+       ShellExecuteA(NULL, "open", ".\\help\\index.htm",NULL, NULL, SW_SHOWNORMAL);
        break;
 
     case IDM_ABOUT:
